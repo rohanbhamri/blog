@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -13,7 +14,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categories::all();
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -34,18 +36,16 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'cat_name'      =>  'required|unique:categories,cat_name'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $category = new Categories([
+            'cat_name'          =>  $request->get('cat_name'),
+            'cat_desc'          =>  $request->get('cat_desc'),
+        ]);
+        $category->save();
+        return back()->with('success', 'Category Added...'); 
     }
 
     /**
@@ -56,7 +56,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Categories::find($id);
+        return view('categories.edit', compact('category', 'id'));
     }
 
     /**
@@ -68,7 +69,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Categories::find($id);
+        $category->cat_name = $request->get('cat_name');
+        $category->cat_desc = $request->get('cat_desc');
+        $category->save();
+        return redirect('/categories')->with('success', 'Category Updated...');
     }
 
     /**
@@ -79,6 +84,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Categories::find($id);
+        $category->delete();
+        return redirect('/categories')->with('success', 'Category Deleted...');
     }
 }

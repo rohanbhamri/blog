@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <head> 
-    <title>Paying Guests</title>
+    <title>Blog</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -93,149 +93,17 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                    
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-user"></i>
-                                <span>Members</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('/members/add')}}">Add</a></li>
-                                <li><a href="{{url('/members')}}">View</a></li>
-                                <li><a href="{{url('/members/active')}}">Active Members</a></li>
-                                <li><a href="{{url('/members/inactive')}}">Inactive Members</a></li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li>
-                            <a class="" href="{{ url('/collect-rent') }}">
-                                <i class="fa fa-money"></i>
-                                <span>Collect Rent</span>
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a class="" href="{{ url('/accept-payment') }}">
-                                <i class="fa fa-money"></i>
-                                <span>Accept Payments</span>
-                            </a>
-                        </li>
-                    
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-money"></i>
-                                <span>Payments</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('/payments')}}">All</a></li>
-                                <li><a href="{{url('/payments/pending')}}">Pending</a></li>
-                                <li><a href="{{url('/payments/paid')}}">Paid</a></li>
-                                <li><a href="{{url('/payments/overpaid')}}">Overpaid</a></li>
-                            </ul>
-                        </li>
-                        
-                    
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-bed"></i>
-                                <span>Rooms</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('/rooms/add')}}">Add</a></li>
-                                <li><a href="{{url('/rooms')}}">View</a></li>
-                                <li class="sub-menu">
-                                    <a href="javascript:;">
-                                        <span>Room Type</span>
-                                    </a>
-                                            <ul class="sub">
-                                        <li><a href="{{url('/rooms/type/add')}}">Add</a></li>
-                                        <li><a href="{{url('/rooms/type')}}">View</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                    
-
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-food"></i>
-                                <span>Meals</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('/meals/add')}}">Add</a></li>
-                                <li><a href="{{url('/meals')}}">View</a></li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-envelope"></i>
-                                <span>Send SMS</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('/sms/reminder')}}">Reminder</a></li>
-                                <li><a href="{{url('/sms/greetings')}}">Greetings</a></li>
-                                <li><a href="{{url('/sms/others')}}">Others</a></li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="icon-envelope"></i>
-                                <span>Default Messages</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('/sms/add')}}">ADD MESSAGES</a></li>
-                                <li><a href="{{url('/sms')}}">View</a></li>
-                            </ul>
-                        </li>
-                        
-                        
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>Reports</span>
+                                <span>Categories</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{url('reports/rent')}}">Rents</a></li>
-                                <li><a href="{{url('reports/pending-rents')}}">Pending Rents</a></li>
-                                <li><a href="{{url('reports/meals')}}">Meals </a></li>
-                                <li><a href="{{url('reports/deposits')}}">Deposits</a></li>
+                                <li><a href="{{url('/categories/add')}}">Add</a></li>
+                                <li><a href="{{url('/categories')}}">View</a></li>
                             </ul>
                         </li>
-                        
-                                                
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-book"></i>
-                                <span>Branches</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('branch/add')}}">Add</a></li>
-                                <li><a href="{{url('branch/')}}">View</a></li>
-                                {{-- <li><a href="{{url('users/edit')}}"></a></li>
-                                <li><a href="{{url('users/update')}}">Deposits</a></li> --}}
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-book"></i>
-                                <span>Users</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="{{url('users/')}}">Users</a></li>
-                                <li><a href="{{url('users/add')}}">Add New</a></li>
-                                {{-- <li><a href="{{url('users/edit')}}"></a></li>
-                                <li><a href="{{url('users/update')}}">Deposits</a></li> --}}
-                            </ul>
-                        </li>
-                        
+                       
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
