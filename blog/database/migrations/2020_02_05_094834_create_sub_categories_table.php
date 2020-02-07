@@ -17,7 +17,7 @@ class CreateSubCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('cat_id')->unsigned();
             $table->string('subcat_name', 100);
-            $table->string('subcat_desc', 500);
+            $table->string('subcat_desc', 500)->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
 
