@@ -31,3 +31,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/sub-categories/update/{id}', 'SubCategoriesController@update');
     Route::get('/sub-categories/delete/{id}', 'SubCategoriesController@destroy');
 });
+
+
+//Article
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/article', 'ArticleController@index');
+    Route::get('/article/add', 'ArticleController@create');
+    Route::post('/article/store', 'ArticleController@store');
+    Route::get('/sub-categories/edit/{id}', 'ArticleController@edit');
+    Route::post('/sub-categories/update/{id}', 'ArticleController@update');
+    Route::get('/sub-categories/delete/{id}', 'ArticleController@destroy');
+});

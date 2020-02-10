@@ -113,6 +113,16 @@
                                 <li><a href="{{url('/sub-categories')}}">View</a></li>
                             </ul>
                         </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Create Article</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{url('/article/add')}}">Add</a></li>
+                                <li><a href="{{url('/article')}}">View</a></li>
+                            </ul>
+                        </li>
                        
                     </ul>
                 </div>
