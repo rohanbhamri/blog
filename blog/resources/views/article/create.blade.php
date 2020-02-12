@@ -1,4 +1,9 @@
 @extends('base')
+<script src="{{URL::asset('assets/js/nicEdit.js')}}" type="text/javascript"></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
+
 
 @section('content')
 <div class="form-w3layouts">
@@ -7,7 +12,7 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Add Categories
+                    Add Article
                 </header>
                 <div class="panel-body">
                     
@@ -43,13 +48,36 @@
                             </div>
                            
                             <div class="form-group ">
-                                <label for="price" class="control-label col-lg-3">Category Description</label>
+                                <label for="title" class="control-label col-lg-3">Select Category</label>
                                 <div class="col-lg-6">
-                                    <script src="{{URL::asset('assets/js/nicEdit.js')}}" type="text/javascript"></script>
-                                    <script type="text/javascript">
-                                        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-                                    </script>
-                                    <div id="myNicPanel" style="width: auto;"></div>
+                                    <select class=" form-control" id="cat_id" name="cat_id" onchange="getSubcategory(this.value)">
+                                        <option value="">Select Category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->cat_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group ">
+                                <label for="title" class="control-label col-lg-3">Select Sub-Category</label>
+                                <div class="col-lg-6">
+                                    <select class="form-control" id="subcat_id" name="subcat_id">
+                                    </select>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group ">
+                                <label for="title" class="control-label col-lg-3">Short Description</label>
+                                <div class="col-lg-6">
+                                    <textarea class="form-control" id="short_desc" name="short_desc">
+                                    </textarea>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group ">
+                                <label for="price" class="control-label col-lg-3">Brief Explanation</label>
+                                <div class="col-lg-6">
                                     <textarea name="brief" id="myInstance1" style="height: auto;" class="form-control">
                                         HTML <b>content</b> <i>default</i> in textarea
                                     </textarea>
@@ -70,4 +98,20 @@
     </div>
     <!-- page end-->
 </div>
+
+<script>
+function getSubcategory(cat_id){
+    $.post('/article/getSubcategory', {'cat_id': cat_id}, function(success){
+        var options = $("#subcat_id");
+        $("#subcat_id").empty();
+        options.append('<option value="">Select Sub-Category</option>');
+        //don't forget error handling!
+        success.forEach(function(item) {
+            // alert(item.subcat_name)
+            options.append('<option value="'+item.id+'">'+item.subcat_name+'</option>');
+        });
+        console.log(success);
+    });
+}
+</script>
 @endsection

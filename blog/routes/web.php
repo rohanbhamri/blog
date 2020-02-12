@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/article', 'ArticleController@index');
     Route::get('/article/add', 'ArticleController@create');
+    Route::post('/article/getSubcategory', 'ArticleController@getSubcategory');
     Route::post('/article/store', 'ArticleController@store');
     Route::get('/sub-categories/edit/{id}', 'ArticleController@edit');
     Route::post('/sub-categories/update/{id}', 'ArticleController@update');

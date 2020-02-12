@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
+use App\SubCategories;
 use Illuminate\Http\Request;
 use stdClass;
 
 class ArticleController extends Controller
 {
     public function create(){
-        return view('article.create');
+        $categories = Categories::all();
+        return view('article.create', compact('categories'));
+    }
+
+    public function getSubcategory(Request $request){
+        $sub_categories = SubCategories::where('cat_id',$request->get('cat_id'))->get();
+        return response($sub_categories);
     }
 
 
