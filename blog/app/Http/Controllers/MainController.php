@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function index(){
-        return view('dashboard.index');
+        return view('admin.dashboard.index');
     }
 
     public function login(){
-        return view('login');
+        return view('admin/login');
     }
 
     public function checklogin(Request $request){
@@ -26,7 +26,7 @@ class MainController extends Controller
         );
 
         if(Auth::attempt($user_data)){
-            return redirect('/');
+            return redirect('/admin');
             
         }
         else{
@@ -38,7 +38,7 @@ class MainController extends Controller
         session_start();
         unset($_SESSION['user_branch']);
         Auth::logout();
-        return redirect('login');
+        return redirect('admin/login');
     }
 
 }

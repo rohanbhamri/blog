@@ -15,7 +15,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        return view('categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = Categories::find($id);
-        return view('categories.edit', compact('category', 'id'));
+        return view('admin.categories.edit', compact('category', 'id'));
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoriesController extends Controller
         $category->cat_name = $request->get('cat_name');
         $category->cat_desc = $request->get('cat_desc');
         $category->save();
-        return redirect('/categories')->with('success', 'Category Updated...');
+        return redirect('/admin/categories')->with('success', 'Category Updated...');
     }
 
     /**
@@ -86,6 +86,6 @@ class CategoriesController extends Controller
     {
         $category = Categories::find($id);
         $category->delete();
-        return redirect('/categories')->with('success', 'Category Deleted...');
+        return redirect('/admin/categories')->with('success', 'Category Deleted...');
     }
 }

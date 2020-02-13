@@ -16,7 +16,7 @@ class SubCategoriesController extends Controller
     public function index()
     {
         $subcategories = SubCategories::join('categories', 'sub_categories.cat_id', '=', 'categories.id')->select('sub_categories.*', 'categories.cat_name')->get();
-        return view('subcategories.index', compact('subcategories'));
+        return view('admin.subcategories.index', compact('subcategories'));
     }
 
     /**
@@ -27,7 +27,7 @@ class SubCategoriesController extends Controller
     public function create()
     {
         $categories = Categories::all();
-        return view('subcategories.create', compact('categories'));
+        return view('admin.subcategories.create', compact('categories'));
 
     }
 
@@ -67,7 +67,7 @@ class SubCategoriesController extends Controller
                         ->first();        
         $categories = Categories::where('id', '<>', $subcategory->cat_id)->get();
 
-        return view('subcategories.edit', compact('subcategory', 'categories', 'id'));
+        return view('admin.subcategories.edit', compact('subcategory', 'categories', 'id'));
     }
 
     /**
@@ -84,7 +84,7 @@ class SubCategoriesController extends Controller
         $subcategory->subcat_name = $request->get('subcat_name');
         $subcategory->subcat_desc = $request->get('subcat_desc');
         $subcategory->save();
-        return redirect('sub-categories')->with('succees', 'Sub-Category Updated');
+        return redirect('admin.sub-categories')->with('succees', 'Sub-Category Updated');
         
     }
 
