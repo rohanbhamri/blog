@@ -38,7 +38,7 @@
                     </div>
                 @endif
                     <div class="form">
-                        <form class="cmxform form-horizontal " method="POST" action="{{url('/admin/article/store')}}">
+                        <form class="cmxform form-horizontal " method="POST" action="{{url('/admin/article/store')}}" enctype="multipart/form-data">
                            {{ csrf_field() }}
                             <div class="form-group ">
                                 <label for="title" class="control-label col-lg-3">Title</label>
@@ -80,6 +80,18 @@
                                 <div class="col-lg-6">
                                     <textarea name="breif" id="myInstance1" style="height: auto;" class="form-control">
                                     </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="price" class="control-label col-lg-3">Upload Preview Image</label>
+                                <div class="col-lg-6">
+                                    <input type="file" class=" form-control" id="photo" name="photo">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="price" class="control-label col-lg-3">Written By</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="writtenby" name="writtenby">
                                 </div>
                             </div>
 

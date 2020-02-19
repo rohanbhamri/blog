@@ -6,6 +6,7 @@ use App\Article;
 use App\Categories;
 use App\SubCategories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use stdClass;
 
 class ArticleController extends Controller
@@ -41,9 +42,16 @@ class ArticleController extends Controller
             'title'         =>  $request->get('title'),
             'short_desc'    =>  $request->get('short_desc'),
             'breif'         =>  $request->get('breif'),
+            'writtenby'         =>  $request->get('writtenby'),
         ]);
+
+        if ($request->hasFile('photo')) {
+            $file_name = $request->file('photo')->getClientOriginalName();
+            $request->file('photo')->storeAs('images/', $file_name);
+            $article->thumbnail = $file_name;
+        }
         $article->save();
-        return redirect('/admin/article/articleIndex')->with('success', 'New Article Is Added');
+        return redirect('/admin/article')->with('success', 'New Article Is Added');
     }
 
     public function show($id){
@@ -52,6 +60,8 @@ class ArticleController extends Controller
                     ->join('categories', 'sub_categories.cat_id', '=', 'categories.id')
                     ->select('categories.cat_name', 'sub_categories.subcat_name', 'articles.*')
                     ->where('title', $title)->first();
-        return view('admin.article.show_single', compact('article'));
+        $thumbnail = Storage::get('images/'.$article->thumbnail);
+        // echo $thumbnail;
+        return view('admin.article.show_single', compact('article', 'thumbnail'));
     }
 }

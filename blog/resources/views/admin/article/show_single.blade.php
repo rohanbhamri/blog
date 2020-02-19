@@ -17,6 +17,7 @@
         <div class="col-sm-4 com-w3ls">
             <section class="panel">
                 <div class="panel-body">
+                    <img src="{{ asset('images/thumbnail/'.$article->thumbnail) }}" alt=""  height="auto" width="176"/>   
                     <ul class="nav nav-pills nav-stacked mail-nav">
                         <li><a style="color:#808080"><b> Category : </b><br>{{$article->cat_name}}</a></li>
                         <li><a style="color:#808080"><b> Sub-Category : </b><br>{{$article->subcat_name}}</a></li>

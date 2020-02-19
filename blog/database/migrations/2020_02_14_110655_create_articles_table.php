@@ -19,6 +19,8 @@ class CreateArticlesTable extends Migration
             $table->string('title', 255);
             $table->string('short_desc',1000);
             $table->string('breif', 10000)->nullable();
+            $table->string('writtenby')->nullable();
+            $table->string('thumnbnail')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
 

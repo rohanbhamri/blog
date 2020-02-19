@@ -13,5 +13,7 @@ class Article extends Model
         'title',
         'short_desc',
         'breif',
+        'writtenby',
+        'thumbnail',
     ];
 }
