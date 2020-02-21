@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 <head> 
     <title>Blog</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -49,7 +47,7 @@
             <!--logo start-->
             <div class="brand">
                 <a href="{{ url('/admin/') }}" class="logo">
-        D-Cube PG 
+        Blog 
     </a>
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars"></div>
@@ -121,6 +119,17 @@
                             <ul class="sub">
                                 <li><a href="{{url('/admin/article/add')}}">Add</a></li>
                                 <li><a href="{{url('/admin/article')}}">View</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Our Dictionary</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{url('/admin/our-dictionary/add')}}">Add</a></li>
+                                <li><a href="{{url('/admin/our-dictionary')}}">View</a></li>
                             </ul>
                         </li>
                        

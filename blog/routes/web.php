@@ -42,3 +42,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/article/show/{id}', 'ArticleController@show');
     
 });
+//Dictionary
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin/our-dictionary', 'DictionaryController@index');
+    Route::get('/admin/our-dictionary/add', 'DictionaryController@create');
+    Route::post('/admin/our-dictionary/store', 'DictionaryController@store');
+    Route::get('/admin/our-dictionary/edit/{id}', 'DictionaryController@edit');
+    Route::post('/admin/our-dictionary/update/{id}', 'DictionaryController@update');
+    Route::get('/admin/our-dictionary/delete/{id}', 'DictionaryController@delete');
+    
+});
+
+//Users
+Route::get('/', 'UserMainController@userindex');
+Route::get('/getArticlefull', 'UserMainController@getArticlefull');

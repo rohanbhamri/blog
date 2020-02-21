@@ -764,7 +764,7 @@ var nicImageOptions = {
 var nicImageButton = nicEditorAdvancedButton.extend({
     addPane: function() {
         this.im = this.ne.selectedInstance.selElm().parentTag("IMG");
-        this.addForm({ "": { type: "title", txt: "Add/Edit Image" }, src: { type: "text", txt: "URL", value: "http://", style: { width: "150px" } }, alt: { type: "text", txt: "Alt Text", style: { width: "100px" } }, align: { type: "select", txt: "Align", options: { none: "Default", left: "Left", right: "Right" } } }, this.im)
+        this.addForm({ "": { type: "title", txt: "Add/Edit Image" }, src: { type: "text", txt: "URL", value: "http://", style: { width: "auto" } }, class: { type: "text", txt: "Class", value: "img-responsive" }, alt: { type: "text", txt: "Alt Text", style: { width: "auto" } }, align: { type: "select", txt: "Align", options: { none: "Default", left: "Left", right: "Right" } } }, this.im)
     },
     submit: function(B) {
         var C = this.inputs.src.value;
@@ -775,9 +775,11 @@ var nicImageButton = nicEditorAdvancedButton.extend({
             this.ne.nicCommand("insertImage", A);
             this.im = this.findElm("IMG", "src", A)
         }
-        if (this.im) { this.im.setAttributes({ src: this.inputs.src.value, alt: this.inputs.alt.value, align: this.inputs.align.value }) }
+        if (this.im) { this.im.setAttributes({ src: this.inputs.src.value, alt: this.inputs.alt.value, align: this.inputs.align.value, class: this.inputs.class.value }) }
     }
 });
+nicEditors.registerPlugin(nicPlugin, nicImageOptions);
+
 nicEditors.registerPlugin(nicPlugin, nicImageOptions);
 
 
