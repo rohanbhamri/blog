@@ -43,7 +43,7 @@
                             <div class="form-group ">
                                 <label for="title" class="control-label col-lg-3">Word</label>
                                 <div class="col-lg-6">
-                                    <input class=" form-control" id="word" name="word" type="text" autocomplete="off">
+                                    <input class=" form-control" id="word" name="word" type="text" autocomplete="off" autofocus="true" >
                                 </div>
                             </div>
                             <div class="form-group ">
